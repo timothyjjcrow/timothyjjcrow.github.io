@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
 	Typed.new("#typed", {
-		strings: ["I build websites.", "I DJ parties.", "I develop software.", "I study Computer Engineering."],
+		strings: ["I build websites.", "make music.", "I develop software.", "peep my mixtape."],
 		startDelay: 500,
 		backDelay: 2000,
 		contentType: 'text',
