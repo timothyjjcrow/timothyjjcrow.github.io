@@ -23,7 +23,6 @@
 
 
   <link rel="stylesheet" href="css/hover-min.css">
-  <link rel ="stylesheet" href = "css/style.css">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
   <!-- Script Links -->
@@ -33,15 +32,49 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="shortcut icon" href="TemplateData/favicon.ico">
+  <link rel="stylesheet" href="TemplateData/style.css">
+  <script src="TemplateData/UnityProgress.js"></script>
+  <script src="Build/UnityLoader.js"></script>
+  <script>
+    var unityInstance = UnityLoader.instantiate("unityContainer", "Build/build.json", {onProgress: UnityProgress});
+    unityInstance.SetFullscreen(1);
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    function handleKeyDown(event){
+      console.log("Key pressed: " + event.keyCode);
+      if(event.keyCode === 32){
+        document.getElementById("stacker-game").style.zIndex = "1";
+        document.getElementById("home-button").style.zIndex = "2";
+      }
+    }
+  </script>
+  <link rel ="stylesheet" href = "css/style.css">
+
+</head>
   
 <body>
-  <!-- Image and text -->
 
+  <!-- Return home button -->
+  <div class="home-button" id="home-button">
+    <button onClick="window.location.reload();">Return Home</button>
+  </div>
+
+  <!-- Stacker Game -->
+<div class="stacker-game" id="stacker-game">
+  <div class="webgl-content" style="width: 100%; height:100%;">
+    <div id="unityContainer" style="width: 100%; height:100%"></div>
+    <div class="footer">
+      <div class="title">block stacker</div>
+    </div>
+  </div>
+</div>
   
   <div class = "header">
     <div class = "container-fluid">
       <div class = "headshot">
-        
         <img class = "headshot_image" src = "img/Tim.jpg">
       </div>
     </div>
@@ -54,8 +87,6 @@
         <h2 class="title"><span id="typex"></span></h2>
       </div>
     </div>
-      
-    
     <div class="fluidcontainer">
     <div class = "social text-center">
         <div class="mx-auto text-center">
@@ -69,8 +100,6 @@
         <a href = "https://soundcloud.com/dacrowles"><img src = "img/Soundcloud.png"></a>
 
         <a href = "resume.html"><img src = "img/resume-icon-png-1.png"></a>
-
-        <a href = "stacker.html"><img src = "img/resume-icon-png-1.png"></a>
       </div>
     </div> 
     </div>
